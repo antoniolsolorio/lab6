@@ -8,8 +8,7 @@
 //mod spring 2015: added constructors
 //mod spring 2018: X11 wrapper class
 //This program is a game starting point for a 3350 project.
-//Used for lab6
-
+//
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -754,10 +753,14 @@ void render()
 	r.bot = gl.yres - 20;
 	r.left = 10;
 	r.center = 0;
+	extern void showName(Rect r, int y_res);
 	ggprint8b(&r, 16, 0x00ff0000, "3350 - Asteroids");
 	ggprint8b(&r, 16, 0x00ffff00, "n bullets: %i", g.nbullets);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids: %i", g.nasteroids);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids destroyed: %i", g.asterdestroyed);
+	showName(r, gl.yres);
+	extern void drawBox(int x, int y);
+	drawBox(gl.xres/2, gl.yres/2);
 	//
 	//-------------
 	//Draw the ship
